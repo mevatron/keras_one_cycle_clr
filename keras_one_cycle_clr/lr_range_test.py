@@ -88,7 +88,7 @@ class LrRangeTest(keras.callbacks.Callback):
         Reset counters, prepare for a new weight decay value.
         """
         optimizer_weights = self.model_org.optimizer.get_weights()
-        if not optimizer_weights:
+        if optimizer_weights:
             self.model.optimizer.set_weights(optimizer_weights)
         self.model.set_weights(self.model_org.get_weights())
         self.current_step = 0
